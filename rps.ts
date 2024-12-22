@@ -60,9 +60,20 @@ function playRound(humanChoice: gameChoice, computerChoice: gameChoice): void {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(): void {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(humanScore);
+        console.log(computerScore);
+    }
 
-playRound(humanSelection, computerSelection);
-console.log(humanScore);
-console.log(computerScore);
+    if (humanScore > computerScore) {
+        console.log("You win!! 🎉🎉");
+    } else if (computerScore > humanScore) {
+        console.log("Computer wins - better luck next time 😭");
+    } else console.log("Game is a tie! ❌");
+}
+
+playGame();

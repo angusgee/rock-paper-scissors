@@ -63,8 +63,21 @@ function playRound(humanChoice, computerChoice) {
         computerScore += 1;
     }
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-console.log(humanScore);
-console.log(computerScore);
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(humanScore);
+        console.log(computerScore);
+    }
+    if (humanScore > computerScore) {
+        console.log("You win!! 🎉🎉");
+    }
+    else if (computerScore > humanScore) {
+        console.log("Computer wins - better luck next time 😭");
+    }
+    else
+        console.log("Game is a tie! ❌");
+}
+playGame();
