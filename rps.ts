@@ -9,20 +9,29 @@ const btnScissors = document.querySelector("#btn-scissors");
 
 btnRock?.addEventListener("click", () => {
     setUserChoice("rock");
-    console.log(">> user choice set to: Rock");
+    console.log(">> user choice set to: rock");
     playRound(getComputerChoice(), currentUserChoice);
+    console.log(
+        `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
+    );
 });
 
 btnPaper?.addEventListener("click", () => {
     setUserChoice("paper");
-    console.log(">> user choice set to: Paper");
+    console.log(">> user choice set to: paper");
     playRound(getComputerChoice(), currentUserChoice);
+    console.log(
+        `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
+    );
 });
 
 btnScissors?.addEventListener("click", () => {
     setUserChoice("scissors");
-    console.log(">> user choice set to: Scissors");
+    console.log(">> user choice set to: scissors");
     playRound(getComputerChoice(), currentUserChoice);
+    console.log(
+        `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
+    );
 });
 
 function getComputerChoice(): gameChoice {

@@ -7,18 +7,21 @@ const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
 btnRock === null || btnRock === void 0 ? void 0 : btnRock.addEventListener("click", () => {
     setUserChoice("rock");
-    console.log(">> user choice set to: Rock");
+    console.log(">> user choice set to: rock");
     playRound(getComputerChoice(), currentUserChoice);
+    console.log(`current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
 });
 btnPaper === null || btnPaper === void 0 ? void 0 : btnPaper.addEventListener("click", () => {
     setUserChoice("paper");
-    console.log(">> user choice set to: Paper");
+    console.log(">> user choice set to: paper");
     playRound(getComputerChoice(), currentUserChoice);
+    console.log(`current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
 });
 btnScissors === null || btnScissors === void 0 ? void 0 : btnScissors.addEventListener("click", () => {
     setUserChoice("scissors");
-    console.log(">> user choice set to: Scissors");
+    console.log(">> user choice set to: scissors");
     playRound(getComputerChoice(), currentUserChoice);
+    console.log(`current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
 });
 function getComputerChoice() {
     const randInt = Math.random();
