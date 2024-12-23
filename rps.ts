@@ -9,6 +9,7 @@ const btnPaper: HTMLButtonElement = document.querySelector("#btn-paper")!;
 const btnScissors: HTMLButtonElement = document.querySelector("#btn-scissors")!;
 const resultsDiv = document.querySelector("#results");
 const scoresTxt = document.createElement("p");
+const resultsTxt = document.createElement("p");
 
 btnRock?.addEventListener("click", () => {
     playGame("rock");
@@ -64,23 +65,30 @@ function playRound(
 }
 
 function playGame(userChoice: gameChoice): void {
+    resultsTxt.innerHTML = "";
     currentUserChoice = userChoice;
     console.log(`>> user choice set to: ${userChoice}`);
     let computerChoice = getComputerChoice();
     playRound(currentUserChoice, computerChoice);
     introTxt.style.visibility = "hidden";
-    // add p tag with current scores
     scoresTxt.innerHTML = `Current scores:\nYou: ${userScore}\nComputer: ${computerScore}`;
     resultsDiv?.appendChild(scoresTxt);
 
     console.log(
         `current scores:\nYou: ${userScore}\nComputer: ${computerScore}`
     );
-    // add winning messages
-    // reset scores
     if (userScore > 4) {
+        resultsTxt.innerHTML = "Game over. You win!! 🎉🎉";
+        resultsDiv?.appendChild(resultsTxt);
+        userScore = 0;
+        computerScore = 0;
         console.log("Game over. You win!! 🎉🎉");
     } else if (computerScore > 4) {
+        resultsTxt.innerHTML =
+            "Game over. Computer wins - better luck next time 😭";
+        resultsDiv?.appendChild(resultsTxt);
+        userScore = 0;
+        computerScore = 0;
         console.log("Game over. Computer wins - better luck next time 😭");
     }
 }

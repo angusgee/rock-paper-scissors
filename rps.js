@@ -8,6 +8,7 @@ const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
 const resultsDiv = document.querySelector("#results");
 const scoresTxt = document.createElement("p");
+const resultsTxt = document.createElement("p");
 btnRock === null || btnRock === void 0 ? void 0 : btnRock.addEventListener("click", () => {
     playGame("rock");
 });
@@ -62,21 +63,28 @@ function playRound(currentUserChoice, computerChoice) {
     }
 }
 function playGame(userChoice) {
+    resultsTxt.innerHTML = "";
     currentUserChoice = userChoice;
     console.log(`>> user choice set to: ${userChoice}`);
     let computerChoice = getComputerChoice();
     playRound(currentUserChoice, computerChoice);
     introTxt.style.visibility = "hidden";
-    // add p tag with current scores
-    scoresTxt.innerHTML = `current scores:\nYou: ${userScore}\nComputer: ${computerScore}`;
+    scoresTxt.innerHTML = `Current scores:\nYou: ${userScore}\nComputer: ${computerScore}`;
     resultsDiv === null || resultsDiv === void 0 ? void 0 : resultsDiv.appendChild(scoresTxt);
     console.log(`current scores:\nYou: ${userScore}\nComputer: ${computerScore}`);
-    // add winning messages
-    // reset scores
     if (userScore > 4) {
+        resultsTxt.innerHTML = "Game over. You win!! 🎉🎉";
+        resultsDiv === null || resultsDiv === void 0 ? void 0 : resultsDiv.appendChild(resultsTxt);
+        userScore = 0;
+        computerScore = 0;
         console.log("Game over. You win!! 🎉🎉");
     }
     else if (computerScore > 4) {
+        resultsTxt.innerHTML =
+            "Game over. Computer wins - better luck next time 😭";
+        resultsDiv === null || resultsDiv === void 0 ? void 0 : resultsDiv.appendChild(resultsTxt);
+        userScore = 0;
+        computerScore = 0;
         console.log("Game over. Computer wins - better luck next time 😭");
     }
 }
