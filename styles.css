@@ -1,0 +1,12 @@
+body {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+    min-width: 7rem;
+}

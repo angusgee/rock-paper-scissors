@@ -4,13 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>RPS by AngusG</title>
-        <style>
-            body {
-                display: grid;
-                place-items: center;
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-            }
-        </style>
         <script src="rps.js" defer></script>
         <link
             rel="icon"
@@ -19,11 +12,14 @@
             href="/assets/favicon-16x16.png"
         />
         <link rel="manifest" href="/assets/site.webmanifest" />
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
         <h1>Rock Paper Scissors 2024</h1>
+        <p id="intro-txt">Click one of the buttons below to get started!</p>
         <button id="btn-rock">Rock</button>
         <button id="btn-paper">Paper</button>
         <button id="btn-scissors">Scissors</button>
+        <div id="results"></div>
     </body>
 </html>
