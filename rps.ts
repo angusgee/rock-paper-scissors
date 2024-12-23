@@ -8,30 +8,15 @@ const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
 
 btnRock?.addEventListener("click", () => {
-    setUserChoice("rock");
-    console.log(">> user choice set to: rock");
-    playRound(getComputerChoice(), currentUserChoice);
-    console.log(
-        `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
-    );
+    playGame("rock");
 });
 
 btnPaper?.addEventListener("click", () => {
-    setUserChoice("paper");
-    console.log(">> user choice set to: paper");
-    playRound(getComputerChoice(), currentUserChoice);
-    console.log(
-        `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
-    );
+    playGame("paper");
 });
 
 btnScissors?.addEventListener("click", () => {
-    setUserChoice("scissors");
-    console.log(">> user choice set to: scissors");
-    playRound(getComputerChoice(), currentUserChoice);
-    console.log(
-        `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
-    );
+    playGame("scissors");
 });
 
 function getComputerChoice(): gameChoice {
@@ -46,10 +31,6 @@ function getComputerChoice(): gameChoice {
         console.log("computer chooses scissors");
         return "scissors";
     }
-}
-
-function setUserChoice(userSelection: gameChoice): void {
-    currentUserChoice = userSelection;
 }
 
 function playRound(
@@ -79,40 +60,17 @@ function playRound(
     }
 }
 
-// function getHumanChoice(): gameChoice {
-//     const humanChoice: string | undefined = prompt(
-//         "Please enter rock, paper, or scissors (default is rock): "
-//     )?.toLowerCase();
-//     switch (humanChoice) {
-//         case "rock":
-//             console.log("you chose rock");
-//             return "rock";
-//         case "scissors":
-//             console.log("you chose scissors");
-//             return "scissors";
-//         case "paper":
-//             console.log("you chose paper");
-//             return "paper";
-//         default:
-//             console.log("no correct choice detected >> defaulting to rock");
-//             return "rock";
-//     }
-// }
-
-// function playGame(): void {
-//     for (let i = 0; i < 5; i++) {
-//         const humanSelection = getHumanChoice();
-//         const computerSelection = getComputerChoice();
-//         playRound(humanSelection, computerSelection);
-//         console.log(humanScore);
-//         console.log(computerScore);
-//     }
-
-//     if (humanScore > computerScore) {
-//         console.log("You win!! 🎉🎉");
-//     } else if (computerScore > humanScore) {
-//         console.log("Computer wins - better luck next time 😭");
-//     } else console.log("Game is a tie! ❌");
-// }
-
-// playGame();
+function playGame(userChoice: gameChoice): void {
+    currentUserChoice = userChoice;
+    console.log(`>> user choice set to: ${userChoice}`);
+    let computerChoice = getComputerChoice();
+    playRound(currentUserChoice, computerChoice);
+    console.log(
+        `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
+    );
+    if (humanScore > 4) {
+        console.log("Game over. You win!! 🎉🎉");
+    } else if (computerScore > 4) {
+        console.log("Game over. Computer wins - better luck next time 😭");
+    }
+}

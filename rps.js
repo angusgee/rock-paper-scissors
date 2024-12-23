@@ -6,22 +6,31 @@ const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
 btnRock === null || btnRock === void 0 ? void 0 : btnRock.addEventListener("click", () => {
-    setUserChoice("rock");
-    console.log(">> user choice set to: rock");
-    playRound(getComputerChoice(), currentUserChoice);
-    console.log(`current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+    playGame("rock");
+    // setUserChoice("rock");
+    // console.log(">> user choice set to: rock");
+    // playRound(getComputerChoice(), currentUserChoice);
+    // console.log(
+    //     `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
+    // );
 });
 btnPaper === null || btnPaper === void 0 ? void 0 : btnPaper.addEventListener("click", () => {
-    setUserChoice("paper");
-    console.log(">> user choice set to: paper");
-    playRound(getComputerChoice(), currentUserChoice);
-    console.log(`current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+    playGame("paper");
+    // setUserChoice("paper");
+    // console.log(">> user choice set to: paper");
+    // playRound(getComputerChoice(), currentUserChoice);
+    // console.log(
+    //     `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
+    // );
 });
 btnScissors === null || btnScissors === void 0 ? void 0 : btnScissors.addEventListener("click", () => {
-    setUserChoice("scissors");
-    console.log(">> user choice set to: scissors");
-    playRound(getComputerChoice(), currentUserChoice);
-    console.log(`current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+    playGame("scissors");
+    // setUserChoice("scissors");
+    // console.log(">> user choice set to: scissors");
+    // playRound(getComputerChoice(), currentUserChoice);
+    // console.log(
+    //     `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
+    // );
 });
 function getComputerChoice() {
     const randInt = Math.random();
@@ -38,9 +47,9 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-function setUserChoice(userSelection) {
-    currentUserChoice = userSelection;
-}
+// function setUserChoice(userSelection: gameChoice): void {
+//     currentUserChoice = userSelection;
+// }
 function playRound(currentUserChoice, computerChoice) {
     if (currentUserChoice === computerChoice) {
         console.log("Round is a tie! Both player entered ", currentUserChoice);
@@ -68,6 +77,19 @@ function playRound(currentUserChoice, computerChoice) {
     else if (currentUserChoice === "scissors" && computerChoice === "rock") {
         console.log("Computer wins this round! Rock smashes scissors");
         computerScore += 1;
+    }
+}
+function playGame(userChoice) {
+    currentUserChoice = userChoice;
+    console.log(`>> user choice set to: ${userChoice}`);
+    let computerChoice = getComputerChoice();
+    playRound(currentUserChoice, computerChoice);
+    console.log(`current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+    if (humanScore > 4) {
+        console.log("Game over. You win!! 🎉🎉");
+    }
+    else if (computerScore > 4) {
+        console.log("Game over. Computer wins - better luck next time 😭");
     }
 }
 // function getHumanChoice(): gameChoice {
