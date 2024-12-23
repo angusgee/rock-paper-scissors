@@ -7,30 +7,12 @@ const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
 btnRock === null || btnRock === void 0 ? void 0 : btnRock.addEventListener("click", () => {
     playGame("rock");
-    // setUserChoice("rock");
-    // console.log(">> user choice set to: rock");
-    // playRound(getComputerChoice(), currentUserChoice);
-    // console.log(
-    //     `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
-    // );
 });
 btnPaper === null || btnPaper === void 0 ? void 0 : btnPaper.addEventListener("click", () => {
     playGame("paper");
-    // setUserChoice("paper");
-    // console.log(">> user choice set to: paper");
-    // playRound(getComputerChoice(), currentUserChoice);
-    // console.log(
-    //     `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
-    // );
 });
 btnScissors === null || btnScissors === void 0 ? void 0 : btnScissors.addEventListener("click", () => {
     playGame("scissors");
-    // setUserChoice("scissors");
-    // console.log(">> user choice set to: scissors");
-    // playRound(getComputerChoice(), currentUserChoice);
-    // console.log(
-    //     `current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`
-    // );
 });
 function getComputerChoice() {
     const randInt = Math.random();
@@ -47,9 +29,6 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-// function setUserChoice(userSelection: gameChoice): void {
-//     currentUserChoice = userSelection;
-// }
 function playRound(currentUserChoice, computerChoice) {
     if (currentUserChoice === computerChoice) {
         console.log("Round is a tie! Both player entered ", currentUserChoice);
@@ -92,37 +71,3 @@ function playGame(userChoice) {
         console.log("Game over. Computer wins - better luck next time 😭");
     }
 }
-// function getHumanChoice(): gameChoice {
-//     const humanChoice: string | undefined = prompt(
-//         "Please enter rock, paper, or scissors (default is rock): "
-//     )?.toLowerCase();
-//     switch (humanChoice) {
-//         case "rock":
-//             console.log("you chose rock");
-//             return "rock";
-//         case "scissors":
-//             console.log("you chose scissors");
-//             return "scissors";
-//         case "paper":
-//             console.log("you chose paper");
-//             return "paper";
-//         default:
-//             console.log("no correct choice detected >> defaulting to rock");
-//             return "rock";
-//     }
-// }
-// function playGame(): void {
-//     for (let i = 0; i < 5; i++) {
-//         const humanSelection = getHumanChoice();
-//         const computerSelection = getComputerChoice();
-//         playRound(humanSelection, computerSelection);
-//         console.log(humanScore);
-//         console.log(computerScore);
-//     }
-//     if (humanScore > computerScore) {
-//         console.log("You win!! 🎉🎉");
-//     } else if (computerScore > humanScore) {
-//         console.log("Computer wins - better luck next time 😭");
-//     } else console.log("Game is a tie! ❌");
-// }
-// playGame();
